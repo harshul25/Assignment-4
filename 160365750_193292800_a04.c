@@ -46,7 +46,6 @@ void printMatrix(void); //prints allocated and available matrix.
 int computation(void); //executes bankers algorithm and finds the safe sequence.
 void* threadRun(void* t);//the thread funtion, the code executed by each thread.
 
-
 int main(int argc, const char * argv[]) {
     
     int counter;
@@ -56,8 +55,8 @@ int main(int argc, const char * argv[]) {
         return -1;
     }else{ 
         //parse and store them in avalible array.
-        for(counter=0;counter<argc;counter++)
-            available[counter]=(int)(argv[counter]-48);
+        for(counter=0;counter<argc-1;counter++)
+            available[counter] = atoi(argv[counter+1]);
     }
     
     if (pthread_mutex_init(&lock, NULL) != 0) { 
@@ -93,9 +92,6 @@ int main(int argc, const char * argv[]) {
     pthread_mutex_destroy(&lock);
     return 0;
 }
-
-//read off the txt file provided and store values in our maximum array.
-int readFile(){ 
 
 int readFile(){ //read off the txt file provided and store values in our maximum array.
     int c;
