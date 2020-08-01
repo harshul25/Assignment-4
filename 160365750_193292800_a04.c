@@ -203,3 +203,19 @@ int isSafe(){
         }
     return 0;
 }
+void printMatrix(){ //prints allocated resource matrix and maximum resource matrix.
+    printf("Allocated Resources:\n");
+    for (int i = 0; i < limit.row; i++) {
+        for (int j = 0; j < limit.col; j++) {
+            printf("%d ", allocation[i][j]);
+        }
+        printf("\n");
+    }
+    printf("Maximum Resources:\n");
+    for (int i = 0; i < limit.row; i++) {
+        for (int j = 0; j < limit.col; j++) {
+            printf("%d ", maximum[i][j]);
+        }
+        printf("\n");
+    }
+}
