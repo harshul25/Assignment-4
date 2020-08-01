@@ -3,9 +3,11 @@ This is the last Assignment for CP386
 
 Project Title: Assignment #4
 
-Motivation: We have tried to implement Banker's Algorithm to avoid deadlock with multiple instances of a resource type. 
+Motivation:
+- We have tried to implement Banker's Algorithm to avoid deadlock with multiple instances of a resource type. 
 
-Installation: We used Xcode and VScode editors to type out our programs. However, we ran and tested it using an Ubuntu terminal on our virtual machine. 
+Installation:
+- We used Xcode and VScode editors to type out our programs. However, we ran and tested it using an Ubuntu terminal on our virtual machine. 
 
 Note: Please ensure to include the .txt file (named 'sample4_in.txt') provided in the repository. 
 
@@ -195,9 +197,11 @@ Tests:
 
 Code Example:
 
-Authors: Jiachun Xiang & Harshul Mehta 
+Authors: 
+- Jiachun Xiang & Harshul Mehta 
 
 Credits:
+
 We would like to give credits to our textbook:
 Operating System Concepts”, 10th Edition; Abraham Silberschatz, Peter B.  Galvin, Greg Gagne; 2018; John Wiley and Sons.
 
