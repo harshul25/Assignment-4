@@ -1,4 +1,52 @@
-<<<<<<< HEAD
+
+//
+//  160365750_193292800_a04.c
+//  Assignment #4
+//
+//  Created by Harshul Mehta and Jiachun Xiang on 2020-07-26.
+//  Copyright © 2020 Harshul Mehta. All rights reserved.
+//
+
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <pthread.h>
+#include <sys/stat.h>
+#include <time.h>
+#include <semaphore.h>
+#include <sys/mman.h>
+#include <stdbool.h>
+
+#define Len 10 //Note: hardcoded, this program handles a maximum of ten rosources and ten processes.
+pthread_mutex_t lock; //to ensure only one process is in the critical section.
+int maximum[Len][Len]; //stores the maximum allocated resources per process.
+int available[Len]; //stores the available resources after allocation is done.
+int allocation[Len][Len]; // stores resources that are allocated per process.
+int need[Len][Len]; //stores the resources needed per process.
+int used[Len];
+int work[Len]; //stores availible resources for bankers algorthim.
+bool Finish[Len]; //ensures all processes have been processed.
+struct dimentions{ //used to stores the dimentions of each matrix.
+    int row;
+    int col;
+}limit;
+typedef struct thread// used to represent a single thread.
+{
+    int tid;
+    int state;
+    pthread_t handle;
+    int retVal;
+} Thread;
+//-----
+int readInput(void);//reads the input for each request the user makes.
+int readFile(void);//reads the txt file and stores maximum values for each resource of each process.
+int isSafe(void);// checks for safe state.
+void printMatrix(void); //prints allocated and available matrix.
+int computation(void); //executes bankers algorithm and finds the safe sequence.
+void* threadRun(void* t);//the thread funtion, the code executed by each thread.
+
+
 int main(int argc, const char * argv[]) {
     
     int counter;
@@ -48,57 +96,8 @@ int main(int argc, const char * argv[]) {
 
 //read off the txt file provided and store values in our maximum array.
 int readFile(){ 
-=======
-//
-//  160365750_193292800_a04.c
-//  Assignment #4
-//
-//  Created by Harshul Mehta and Jiachun Xiang on 2020-07-26.
-//  Copyright © 2020 Harshul Mehta. All rights reserved.
-//
-
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <pthread.h>
-#include <sys/stat.h>
-#include <time.h>
-#include <semaphore.h>
-#include <sys/mman.h>
-#include <stdbool.h>
-
-#define Len 10 //Note: hardcoded, this program handles a maximum of ten rosources and ten processes.
-pthread_mutex_t lock; //to ensure only one process is in the critical section.
-int maximum[Len][Len]; //stores the maximum allocated resources per process.
-int available[Len]; //stores the available resources after allocation is done.
-int allocation[Len][Len]; // stores resources that are allocated per process.
-int need[Len][Len]; //stores the resources needed per process.
-int used[Len];
-int work[Len]; //stores availible resources for bankers algorthim.
-bool Finish[Len]; //ensures all processes have been processed.
-struct dimentions{ //used to stores the dimentions of each matrix.
-    int row;
-    int col;
-}limit;
-typedef struct thread// used to represent a single thread.
-{
-    int tid;
-    int state;
-    pthread_t handle;
-    int retVal;
-} Thread;
-//-----
-int readInput(void);//reads the input for each request the user makes.
-int readFile(void);//reads the txt file and stores maximum values for each resource of each process.
-int isSafe(void);// checks for safe state.
-void printMatrix(void); //prints allocated and available matrix.
-int computation(void); //executes bankers algorithm and finds the safe sequence.
-void* threadRun(void* t);//the thread funtion, the code executed by each thread.
-
 
 int readFile(){ //read off the txt file provided and store values in our maximum array.
->>>>>>> 5cb8a7575d67e702d076789fa3d0902114a1dbbc
     int c;
     FILE *file;
     int row = 0;
