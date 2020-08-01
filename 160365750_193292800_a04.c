@@ -254,3 +254,39 @@ int isSafe(){ //calculates the need matrix and then checks for safe state.
         }
     return 0;
 }
+
+
+int computation(void){//runs bankers algorithm and finds safe sequence.
+    printf("\nEnter a Command: Run\n");
+    int count = 0;//counter variable.
+    bool safe; //counter variable.
+    while(count < limit.row){ //ensure all processes have been run.
+        for (int i = 0; i < limit.row; i++) {
+            safe = true;
+            int j;
+            for (j = 0; j < limit.col && safe; j++) {
+                if(!Finish[i]){
+                    if(need[i][j] > work[j]){
+                        safe = false;
+                    }
+                }else{
+                    safe = false;
+                    break;
+                }
+            }
+            if(safe){
+                Thread *thread = NULL;
+                thread = (Thread*)malloc(sizeof(Thread));//allocate space for thread.
+                thread->tid = i;
+                thread->state = 1;
+                thread->retVal = pthread_create(&(thread->handle),NULL,threadRun,thread);//run thread.
+                sleep(1); //gives the dramatic feel of threadding
+                Finish[i] = true;
+                count++;
+                
+            }
+        }
+    }
+    printf("\nEnter Command: Exit\n");
+    return 0;
+}
