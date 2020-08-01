@@ -42,4 +42,12 @@ Authors: Jiachun Xiang & Harshul Mehta
 
 Credits:
 
+Operating System Concepts”, 10th Edition; Abraham Silberschatz, Peter B.  Galvin,Greg Gagne; 2018; John Wiley and Sons.
+
+Google
+
+GeekforGeeks
+
+and thanks Dr. Sukhjit Singh Sehra for teaching about banker's algorithm'
+
 License: MIT License
