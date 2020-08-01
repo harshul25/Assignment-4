@@ -27,21 +27,37 @@ Features:
 Tests: 
 
 The number of customers is: 3
+
 Maximum Resources:
+
 7 5 3 
+
 3 2 2 
+
 9 0 2 
+
 2 2 2 
+
 4 3 3 
+
 Available Resources:
+
 3 3 2 
+
 Enter a Command: RQ0010
+
 Request Completed!
+
 Enter a Command: RQ1200
+
 Request Completed!
+
 Enter a Command: RQ2302
+
 Request Completed!
+
 Enter a Command: RQ3211
+
 Request Completed!
 Enter a Command: RQ4002
 Request Completed!
