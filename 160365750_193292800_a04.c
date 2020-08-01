@@ -290,3 +290,52 @@ int computation(void){//runs bankers algorithm and finds safe sequence.
     printf("\nEnter Command: Exit\n");
     return 0;
 }
+void logStart(int tID)
+{
+    printf("\n\t New Thread with ID %d is started.", tID);
+}
+
+void logFinish(int tID)
+{
+    printf("\n\t Thread with ID %d is finished.", tID);
+}
+
+void* threadRun(void* t)//Thread function.
+{
+    pthread_mutex_lock(&lock); //mutex lock so that only one thread is in the CS
+    
+    int i = ((Thread*)t)->tid;
+    printf("-->  Customer %d :\n",i);
+    printf("\t Allocated Resources: ");
+    for (int j = 0; j < limit.col; j++) {
+        printf("%d ",allocation[i][j]);
+    }
+    printf("\n");
+    
+    printf("\t Needed Resources: ");
+    for (int j = 0; j < limit.col; j++) {
+        printf("%d ",need[i][j]);
+    }
+    printf("\n");
+    
+    printf("\t Availible Resources: ");
+    for (int j = 0; j < limit.col; j++) {
+        printf("%d ",work[j]);
+    }
+    logStart(((Thread*)t)->tid);
+    logFinish(((Thread*)t)->tid);
+    printf("\n");
+    printf("\t Thread is releasing resources...\n");
+    //increment the free space to work with:
+    for (int j = 0; j < limit.col; j++) {
+        work[j] += allocation[i][j];
+    }
+    printf("\t New Availible Resources: ");
+    for (int j = 0; j < limit.col; j++) {
+        printf("%d ",work[j]);
+    }
+    printf("\n");
+    
+    pthread_mutex_unlock(&lock); //release the CS so that another thread can enter.
+    pthread_exit(0);
+}
