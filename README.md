@@ -196,6 +196,7 @@ Tests:
 
 
 Code Example:
+![Screen Shot 2020-07-31 at 10 30 11 PM](https://user-images.githubusercontent.com/19914605/89092183-8bea9200-d37d-11ea-9413-c257a3bc287d.png)
 
 Authors: 
 - Jiachun Xiang & Harshul Mehta 
