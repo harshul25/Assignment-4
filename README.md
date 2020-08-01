@@ -211,6 +211,6 @@ Operating System Concepts”, 10th Edition; Abraham Silberschatz, Peter B.  Galv
 We also took some inspiration from the website GeekforGeeks:
 https://www.geeksforgeeks.org/bankers-algorithm-in-operating-system-2/
 
-Finally, we would like to thank Dr Sukhjit Singh Sehra for teaching about banker's algorithm and many essential concepts about multi-threading which helped us complete the assignment. 
+Finally, we would like to thank Dr Sukhjit Singh Sehra for teaching us about banker's algorithm and many other essential concepts about multi-threading which helped us complete the assignment. 
 
 License: MIT License
