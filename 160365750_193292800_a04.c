@@ -219,3 +219,38 @@ void printMatrix(){ //prints allocated resource matrix and maximum resource matr
         printf("\n");
     }
 }
+
+int isSafe(){ //calculates the need matrix and then checks for safe state.
+    for (int i = 0; i < limit.row; i++) {
+        for (int j = 0; j < limit.col; j++) {
+            need[i][j] = maximum[i][j]-allocation[i][j];
+        }
+    }
+    
+    printf("Needed Resources:\n");
+    for (int i = 0; i < limit.row; i++) {
+        for (int j = 0; j < limit.col; j++) {
+            printf("%d ", need[i][j]);
+        }
+        printf("\n");
+    }
+    
+    for (int i = 0; i < limit.row; i++) {
+        for (int j = 0; j < limit.col; j++) {
+            if(need[i][j]<0){
+                printf("Not Safe!");
+                return 1;
+            }
+        }
+    }
+    
+    printf("Available Resources:\n");
+        for (int j = 0; j < limit.col; j++) {
+            work[j] = available[j];
+             printf("%d ", work[j]);
+        }
+        for (int j = 0; j < limit.col; j++) {
+            Finish[j] = false;
+        }
+    return 0;
+}
