@@ -20,13 +20,13 @@ Features:
 
 - Use banker's algorithm to avoid deadlock
 
--Checks if the given requests are safe to execute.
+- Checks if the given requests are safe to execute.
 
--Also shows the available resources after the execution of a thread. 
+- Also shows the available resources after the execution of a thread. 
 
 Tests: 
 
-The number of customers is: 3 
+The number of customers is: 3
 Maximum Resources:
 7 5 3 
 3 2 2 
