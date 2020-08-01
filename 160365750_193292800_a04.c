@@ -38,6 +38,13 @@ typedef struct thread// used to represent a single thread.
     int retVal;
 } Thread;
 //-----
+int readInput(void);//reads the input for each request the user makes.
+int readFile(void);//reads the txt file and stores maximum values for each resource of each process.
+int isSafe(void);// checks for safe state.
+void printMatrix(void); //prints allocated and available matrix.
+int computation(void); //executes bankers algorithm and finds the safe sequence.
+void* threadRun(void* t);//the thread funtion, the code executed by each thread.
+
 
 int readFile(){ //read off the txt file provided and store values in our maximum array.
     int c;
